@@ -9,14 +9,14 @@
 
 ##  Sommaire
 
-* [Aperçu](#-aperçu)
-* [Fonctionnalités](#-fonctionnalités)
-* [Installation](#-installation)
-* [Utilisation](#-utilisation)
-* [Configuration](#-configuration)
-* [Scripts](#-scripts)
-* [Tests](#-tests)
-* [Contributeurs](#-contributeurs)
+* [Aperçu](-aperçu)
+* [Fonctionnalités](-fonctionnalités)
+* [Installation](-installation)
+* [Utilisation](-utilisation)
+* [Configuration](-configuration)
+* [Scripts](-scripts)
+* [Tests](-tests)
+* [Contributeurs](-contributeurs)
 
 ---
 
@@ -34,7 +34,6 @@ Find Job propose une interface simple pour publier des offres, créer un compte,
 * ✅ Persistance MySQL via **SQLAlchemy**
 * ✅ Publication et consultation d'offres (interface React)
 * ✅ API REST documentée automatiquement (Swagger / Redoc via FastAPI)
-* 🔐 (Optionnel) Rôles utilisateur (candidat / recruteur / admin)
 
 
 ---
@@ -43,7 +42,7 @@ Find Job propose une interface simple pour publier des offres, créer un compte,
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### Prérequis
 
@@ -51,7 +50,7 @@ Find Job propose une interface simple pour publier des offres, créer un compte,
 * `python` ≥ 3.10 · **MySQL** ≥ 8
 * `node` ≥ 18 + `npm` ou `pnpm`
 
-### ⚡️ TL;DR
+###  TL;DR
 
 ```bash
 git clone <URL_DU_REPO_GITHUB_T-WEB-501-PAR_21>
@@ -90,7 +89,7 @@ Ensuite ouvrez **[http://localhost:5173](http://localhost:5173)** (frontend). L�
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 Variables d’environnement :
 
@@ -99,13 +98,13 @@ Variables d’environnement :
 | `PORT`           |                                   `8000` | Port du backend FastAPI                  |
 | `FRONTEND_PORT`  |                                   `5173` | Port du frontend Vite                    |
 | `API_URL`        |                  `http://127.0.0.1:8000` | URL de l’API côté front                  |
-| `FRONTEND_URL`   |                  `http://localhost:5173` | URL du front (CORS)                      |
+| `FRONTEND_URL`   |                  `http://localhost:5173` | URL du front                             |
 | `SECRET_KEY`     |                                        — | Clé secrète (JWT / sessions)             |
 | `MYSQL_HOST`     |                              `127.0.0.1` | Hôte MySQL                               |
 | `MYSQL_PORT`     |                                   `3306` | Port MySQL                               |
 | `MYSQL_USER`     |                                   `root` | Utilisateur MySQL                        |
 | `MYSQL_PASSWORD` |                                        — | Mot de passe MySQL                       |
-| `MYSQL_DB`       |                                 `Job_Board` | Nom de la base                        |
+| `MYSQL_DB`       |                              `Job_Board` | Nom de la base                           |
 
 
 **Exemple `.env` backend**
@@ -127,7 +126,7 @@ MYSQL_DB=Job_Board
 
 ##  Scripts
 
-### Backend (exemples)
+### Backend 
 
 ```bash
 # Démarrer l’API en dev
@@ -151,14 +150,11 @@ pytest -q
 
 ---
 
-## 🧪 Tests
+##  Tests
 
-* **Backend** : `pytest` (ou autre) dans `backend/tests/`
 * **Frontend** : `vitest`/`jest` (optionnel) dans `frontend/tests/`
 
 ```bash
-# Backend
-pytest -q
 
 # Frontend
 npm run test
@@ -170,7 +166,7 @@ npm run test
 
 ---
 
-## 👤 Contributeurs
+##  Contributeurs
 
 * Équipe projet — Johanna Angloma, Valentine Chuon, Adrian Markov
 * Technologies : FastAPI, React, Vite, bcrypt.
