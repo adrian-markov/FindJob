@@ -9,6 +9,7 @@ const UserList = ({ refreshStats }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [editingUser, setEditingUser] = useState(null);
   const [newUser, setNewUser] = useState({ first_name: "", last_name: "", email: "", role: "applicant" });
+  const [showAddModal, setShowAddModal] = useState(false);
   const usersPerPage = 5;
 
   const fetchUsers = async () => {
@@ -35,6 +36,7 @@ const UserList = ({ refreshStats }) => {
       body: JSON.stringify(newUser),
     });
     setNewUser({ first_name: "", last_name: "", email: "", role: "applicant" });
+    setShowAddModal(false);
     await fetchUsers();
     refreshStats();
   };
@@ -56,13 +58,10 @@ const UserList = ({ refreshStats }) => {
   const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
   const totalPages = Math.ceil(users.length / usersPerPage);
 
-  const [showAddModal, setShowAddModal] = useState(false);
-
   return (
     <div className="p-4">
       <div className="flex justify-between items-center mb-4">
         <h2 className="page-title">Utilisateurs</h2>
-
         <button
           onClick={() => setShowAddModal(true)}
           className="bg-[oklch(43.2%_0.232_292.759)] hover:bg-[oklch(38%_0.189_293.745)] text-white rounded-full w-13 h-13 items-center justify-center focus:outline-none"
@@ -70,18 +69,6 @@ const UserList = ({ refreshStats }) => {
           +
         </button>
       </div>
-      
-      <form onSubmit={AddUser} className="mb-6 flex gap-3">
-        <input type="text" placeholder="Prénom" value={newUser.first_name} onChange={(e) => setNewUser({ ...newUser, first_name: e.target.value })} className="border p-2 rounded w-1/4" />
-        <input type="text" placeholder="Nom" value={newUser.last_name} onChange={(e) => setNewUser({ ...newUser, last_name: e.target.value })} className="border p-2 rounded w-1/4" />
-        <input type="email" placeholder="Email" value={newUser.email} onChange={(e) => setNewUser({ ...newUser, email: e.target.value })} className="border p-2 rounded w-1/3" />
-        <select value={newUser.role} onChange={(e) => setNewUser({ ...newUser, role: e.target.value })} className="border p-2 rounded w-1/6">
-          <option value="admin">Admin</option>
-          <option value="recruiter">Recruteur</option>
-          <option value="applicant">Candidat</option>
-        </select>
-        <button type="submit" className="btn-primary"> Ajouter</button>
-      </form>
 
       <table className="w-full border">
         <thead>
@@ -124,6 +111,33 @@ const UserList = ({ refreshStats }) => {
           <button type="submit" className="btnenv text-white"> Enregistrer</button>
           <button type="button" onClick={() => setEditingUser(null)}>Annuler</button>
         </form>
+      )}
+
+      {showAddModal && (
+        <div className="fixed inset-0 bg-gray-400 bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-xl w-[500px] shadow-lg">
+            <h3 className="text-purple font-bold mb-4">Ajouter un utilisateur</h3>
+            <form onSubmit={AddUser} className="flex flex-col gap-3">
+              <input type="text" placeholder="Prénom" value={newUser.first_name} onChange={(e) => setNewUser({ ...newUser, first_name: e.target.value })} className="border p-2 rounded" required />
+              <input type="text" placeholder="Nom" value={newUser.last_name} onChange={(e) => setNewUser({ ...newUser, last_name: e.target.value })} className="border p-2 rounded" required />
+              <input type="email" placeholder="Email" value={newUser.email} onChange={(e) => setNewUser({ ...newUser, email: e.target.value })} className="border p-2 rounded" required />
+              <select value={newUser.role} onChange={(e) => setNewUser({ ...newUser, role: e.target.value })} className="border p-2 rounded">
+                <option value="admin">Admin</option>
+                <option value="recruiter">Recruteur</option>
+                <option value="applicant">Candidat</option>
+              </select>
+
+              <div className="flex justify-end gap-3 mt-4">
+                <button type="button" onClick={() => setShowAddModal(false)} className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded focus:outline-none">
+                  Annuler
+                </button>
+                <button type="submit" className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded focus:outline-none">
+                  Ajouter
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       )}
     </div>
   );
