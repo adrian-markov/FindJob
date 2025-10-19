@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../Components/Navbar.jsx";
 import DashboardContent from "../Components/DashboardContent.jsx";
 
 const AdminDashboard = () => {

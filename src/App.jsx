@@ -10,10 +10,12 @@ import {
 import Nav from "./Components/Nav.jsx";
 import Accueil from "./Components/Accueil.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
-import RecruiterPage from "./pages/RecruiterPage.jsx";
 import Profile from "./pages/Profile.jsx";
 import Applicant from "./Components/applicant.jsx";
 import ApplicationPage from "./pages/ApplicationPage.jsx"; 
+import RecruiterDashboard from "./pages/RecruiterDashboard.jsx";
+import Protection from "./Components/Protection.jsx";
+import Entreprises from "./pages/Entreprises.jsx";
 
 function Layout() {
   const location = useLocation();
@@ -70,11 +72,48 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Accueil />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/recruiter" element={<RecruiterPage />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/applicant" element={<Applicant />} />
-          <Route path="/apply/:jobId" element={<ApplicationPage />} />
+          <Route path="/entreprises" element={<Entreprises />} />
+          <Route
+            path="/admin"
+            element={
+              <Protection allowedRoles={["admin"]}>
+                <AdminDashboard />
+              </Protection>
+            }
+          />
+          <Route
+            path="/recruiter"
+            element={
+              <Protection allowedRoles={["recruiter"]}>
+                <RecruiterDashboard />
+              </Protection>
+            }
+          />
+          <Route
+            path="/applicant"
+            element={
+              <Protection allowedRoles={["applicant"]}>
+                <Applicant />
+              </Protection>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <Protection allowedRoles={["admin", "recruiter", "applicant"]}>
+                <Profile />
+              </Protection>
+            }
+          />
+
+          <Route
+            path="/apply/:jobId"
+            element={
+              <Protection allowedRoles={["applicant"]}>
+                <ApplicationPage />
+              </Protection>
+            }
+          />
         </Route>
       </Routes>
     </Router>
