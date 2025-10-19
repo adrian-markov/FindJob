@@ -1,0 +1,112 @@
+.applicant-container {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+.applicant-container .app-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.applicant-container .app-avatar {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: #e7f1ff; color: #1f6feb;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 20px;
+}
+.applicant-container .app-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+.applicant-container .space { margin-bottom: 16px; }
+.applicant-container .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 720px) {
+  .applicant-container .grid { grid-template-columns: 1fr 1fr; }
+}
+.applicant-container .grid > * { align-self: start; }
+.applicant-container .muted { color: #6b7280; font-size: 12px; }
+.applicant-container .block { display: block; margin: 12px 0; }
+.applicant-container .app-btn,
+.applicant-container .app-btn-primary,
+.applicant-container .app-btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  line-height: 1;
+  height: auto;
+  text-decoration: none;
+  user-select: none;
+  border: 1px solid transparent;
+}
+.applicant-container .app-btn {
+  background: #f5f5f5;
+  color: inherit;
+  border-color: #e5e7eb;
+}
+.applicant-container .app-btn-primary {
+  background: #6b3df0; color: #fff;
+  border: none;
+}
+.applicant-container .app-btn-primary:disabled { opacity: .6; cursor: not-allowed; }
+.applicant-container .app-btn-danger {
+  background: #fff1f1; color: #b91c1c; border-color: #fecaca;
+}
+.applicant-container .cv-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.applicant-container .cv-actions { display: flex; gap: 8px; }
+.applicant-container .cv-name { font-weight: 600; }
+.applicant-container .app-list { list-style: none; padding: 0; margin: 0; }
+.applicant-container .app-item {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+.applicant-container .app-item:hover { background: #fafafa; }
+.applicant-container .status {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600;
+  padding: 4px 8px; border-radius: 999px;
+  background: #eef2ff; color: #3730a3;
+}
+.applicant-container .status--pending  { background: #fff7ed; color: #9a3412; }
+.applicant-container .status--accepted { background: #ecfdf5; color: #065f46; }
+.applicant-container .status--rejected { background: #fef2f2; color: #991b1b; }
+.applicant-container .app-card:hover,
+.applicant-container .app-btn:hover,
+.applicant-container .app-btn-primary:hover,
+.applicant-container .app-btn-danger:hover,
+.applicant-container .app-item:hover {
+  transform: none !important;
+}
+.applicant-container input,
+.applicant-container textarea,
+.applicant-container select {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+  background: #fff;
+}
+.applicant-container input:focus,
+.applicant-container textarea:focus,
+.applicant-container select:focus {
+  border-color: #6b3df0;
+  box-shadow: 0 0 0 3px rgba(107,61,240,.15);
+}
