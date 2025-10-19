@@ -1,6 +1,6 @@
 .cardad {
   background-color: white;
-  color: #1f2937;
+  color: #321f37;
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   padding: 1rem;
@@ -161,3 +161,7 @@ form.mt-4 input[type="email"] {
 form.mt-4 button {
   margin-top: 0.5rem;
 }
+
+
+
+
