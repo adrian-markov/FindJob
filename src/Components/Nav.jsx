@@ -6,7 +6,7 @@ import AuthModal from "./AuthModal.jsx";
 
 const navigation = [
   { name: "Offres", href: "/", current: false },
-  { name: "Entreprises", href: "#", current: false },
+  { name: "Entreprises", href: "/entreprises", current: false },
   { name: "À propos", href: "#", current: false },
 ];
 
@@ -15,17 +15,15 @@ const classNames = (...classes) => classes.filter(Boolean).join(" ");
 export default function Nav() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [defaultTab, setDefaultTab] = useState("login");
-  const [role, setRole] = useState(localStorage.getItem("findjob_role"));
+  const [role, setRole] = useState(localStorage.getItem("findjob_user_role"));
   const navigate = useNavigate();
 
   useEffect(() => {
-    
-    const storedRole = localStorage.getItem("findjob_role");
+    const storedRole = localStorage.getItem("findjob_user_role");
     setRole(storedRole);
 
-    
     const handleRoleChange = () => {
-      const updatedRole = localStorage.getItem("findjob_role");
+      const updatedRole = localStorage.getItem("findjob_user_role");
       setRole(updatedRole);
     };
 
@@ -41,8 +39,7 @@ export default function Nav() {
   const handleLogout = () => {
     localStorage.clear();
     setRole(null);
-    window.dispatchEvent(new Event("findjob_role_changed")); 
-  
+    window.dispatchEvent(new Event("findjob_role_changed"));
     navigate("/");
   };
 
@@ -84,14 +81,12 @@ export default function Nav() {
           <>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex h-16 items-center justify-between">
-                
                 <div className="flex items-center">
                   <a href="/" className="text-violet-600 font-bold text-lg">
                     FindJob
                   </a>
                 </div>
 
-                
                 <div className="hidden md:flex md:items-center md:space-x-6">
                   {navigation.map((item) => (
                     <a
@@ -109,7 +104,6 @@ export default function Nav() {
                   ))}
                 </div>
 
-                
                 <div className="hidden md:flex items-center space-x-3">
                   {!role ? (
                     <>
@@ -151,7 +145,6 @@ export default function Nav() {
               </div>
             </div>
 
-            
             <DisclosurePanel className="md:hidden px-4 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <a

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -40,10 +39,10 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }) {
       }
 
       const data = await response.json();
-      console.log("Connexion réussie :", data);
 
-      localStorage.setItem("findjob_role", data.role);
+      localStorage.setItem("findjob_user_role", data.role);
       localStorage.setItem(`findjob_${data.role}_id`, data.id);
+      localStorage.setItem("findjob_token", data.id);
 
       window.dispatchEvent(new Event("findjob_role_changed"));
 
@@ -51,9 +50,6 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }) {
       if (data.role === "admin") navigate("/admin");
       else if (data.role === "recruiter") navigate("/recruiter");
       else navigate("/applicant");
-
-      console.log("Data reçue :", data);
-      console.log("Type et valeur de role :", typeof data.role, `"${data.role}"`);
 
       onClose();
     } catch (err) {
@@ -94,10 +90,10 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }) {
       }
 
       const data = await response.json();
-      console.log("Inscription réussie :", data);
 
-      localStorage.setItem("findjob_role", signupData.role);
+      localStorage.setItem("findjob_user_role", signupData.role);
       localStorage.setItem(`findjob_${signupData.role}_id`, data.id);
+      localStorage.setItem("findjob_token", data.id);
 
       window.dispatchEvent(new Event("findjob_role_changed"));
 
