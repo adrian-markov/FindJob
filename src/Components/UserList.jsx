@@ -77,7 +77,6 @@ const UserList = ({ refreshStats }) => {
         <button onClick={() => setShowAddModal(true)} className="bg-purple-600 hover:bg-purple-700 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-xl">+</button>
       </div> 
 
-      {/* Vue desktop */}
       <div className="hidden md:block overflow-hidden">
         <table className="w-full text-sm">
           <thead>
@@ -110,7 +109,6 @@ const UserList = ({ refreshStats }) => {
         </table>
       </div>
 
-      {/* Vue mobile - Cards */}
       <div className="md:hidden space-y-3">
         {currentUsers.map((user) => (
           <div key={user.id_user} className="bg-white border rounded-lg p-3 shadow-sm">
@@ -134,7 +132,6 @@ const UserList = ({ refreshStats }) => {
 
       <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
 
-      {/* MODAL AJOUT */}
       {showAddModal && (
         <div className="fixed inset-0 bg-gray-400 bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white p-4 sm:p-6 rounded-xl w-full max-w-[600px] shadow-lg max-h-[90vh] overflow-y-auto">
@@ -158,7 +155,6 @@ const UserList = ({ refreshStats }) => {
         </div>
       )}
 
-      {/* MODAL MODIFICATION */}
       {showEditModal && editingUser && (
         <div className="fixed inset-0 bg-gray-400 bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white p-4 sm:p-6 rounded-xl w-full max-w-[600px] shadow-lg max-h-[90vh] overflow-y-auto">

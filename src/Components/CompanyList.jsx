@@ -70,7 +70,6 @@ const CompanyList = ({ refreshStats }) => {
         <button onClick={() => setShowAddModal(true)} className="bg-purple-600 hover:bg-purple-700 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-xl">+</button>
       </div>
 
-      {/* Vue desktop */}
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
@@ -109,7 +108,6 @@ const CompanyList = ({ refreshStats }) => {
         </table>
       </div>
 
-      {/* Vue mobile - Cards */}
       <div className="md:hidden space-y-3">
         {currentCompanies.map(c => (
           <div key={c.id_company} className="bg-white border rounded-lg p-3 shadow-sm">

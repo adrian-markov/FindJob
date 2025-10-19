@@ -100,7 +100,6 @@ const JobList = ({ refreshStats }) => {
         </button>
       </div>
 
-      {/* Desktop table */}
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
@@ -137,7 +136,6 @@ const JobList = ({ refreshStats }) => {
         </table>
       </div>
 
-      {/* Mobile cards */}
       <div className="md:hidden space-y-3">
         {currentJobs.map((job) => (
           <div key={job.id_ad} className="bg-white border rounded-lg p-3 shadow-sm">
@@ -163,7 +161,6 @@ const JobList = ({ refreshStats }) => {
 
       <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
 
-      {/* Add Job Modal */}
       {showAddModal && (
         <div className="fixed inset-0 bg-gray-400 bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white p-4 sm:p-6 rounded-xl w-full max-w-[600px] shadow-lg max-h-[90vh] overflow-y-auto">
@@ -196,7 +193,6 @@ const JobList = ({ refreshStats }) => {
         </div>
       )}
 
-      {/* Edit Job Modal */}
       {showEditModal && editingJob && (
         <div className="fixed inset-0 bg-gray-400 bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white p-4 sm:p-6 rounded-xl w-full max-w-[600px] shadow-lg max-h-[90vh] overflow-y-auto">
