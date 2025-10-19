@@ -7,7 +7,7 @@
 
 ---
 
-## 📦 Sommaire
+##  Sommaire
 
 * [Aperçu](#-aperçu)
 * [Fonctionnalités](#-fonctionnalités)
@@ -20,7 +20,7 @@
 
 ---
 
-## 🔎 Aperçu
+##  Aperçu
 
 Find Job propose une interface simple pour publier des offres, créer un compte, et  gérer les candidatures. Le backend utiliste une API REST avec **FastAPI** (sécurité: hash des mots de passe avec **bcrypt**). Le frontend est en **React + Vite**.
 
@@ -28,7 +28,7 @@ Find Job propose une interface simple pour publier des offres, créer un compte,
 
 ---
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
 * ✅ Création de compte et connexion (hash des mots de passe via **bcrypt**)
 * ✅ Persistance MySQL via **SQLAlchemy**
@@ -80,7 +80,7 @@ Ensuite ouvrez **[http://localhost:5173](http://localhost:5173)** (frontend). L�
 
 
 
-## 🧭 Utilisation
+##  Utilisation
 
 1. Ouvrez le frontend : [http://localhost:5173](http://localhost:5173)
 2. Créez un compte et connectez-vous.
@@ -105,7 +105,7 @@ Variables d’environnement :
 | `MYSQL_PORT`     |                                   `3306` | Port MySQL                               |
 | `MYSQL_USER`     |                                   `root` | Utilisateur MySQL                        |
 | `MYSQL_PASSWORD` |                                        — | Mot de passe MySQL                       |
-| `MYSQL_DB`       |                                 `find_job` | Nom de la base                         |
+| `MYSQL_DB`       |                                 `Job_Board` | Nom de la base                        |
 
 
 **Exemple `.env` backend**
@@ -125,7 +125,7 @@ MYSQL_DB=Job_Board
 ---
 
 
-## 🛠️ Scripts
+##  Scripts
 
 ### Backend (exemples)
 
