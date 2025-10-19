@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 import AuthModal from "./AuthModal.jsx";
 
 const navigation = [
-  { name: "Offres", href: "/", current: false },
-  { name: "Entreprises", href: "/entreprises", current: false },
-  { name: "À propos", href: "#", current: false },
+    { name: 'Acceuil', href: '/', current: false },
+    { name: 'Offres', href: '/jobs', current: false },
+    { name: 'Entreprises', href: '/entreprises', current: false },
+    { name: 'À propos', href: '#', current: false },
 ];
 
 const classNames = (...classes) => classes.filter(Boolean).join(" ");

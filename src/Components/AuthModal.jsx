@@ -12,6 +12,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }) {
     confirm: "",
     role: "applicant",
     adminCode: "",
+    phone: "",
   });
 
   const API_URL = "http://localhost:8000";
@@ -33,20 +34,18 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginData),
       });
-
-      if (!response.ok) {
-        throw new Error("Les identifiants sont incorrects !");
-      }
-
+      if (!response.ok) throw new Error("Les identifiants sont incorrects !");
       const data = await response.json();
 
       localStorage.setItem("findjob_user_role", data.role);
-      localStorage.setItem(`findjob_${data.role}_id`, data.id);
       localStorage.setItem("findjob_token", data.id);
+      localStorage.setItem("findjob_first_name", data.first_name);
+      localStorage.setItem("findjob_last_name", data.last_name);
+      localStorage.setItem("findjob_email", data.email);
+      localStorage.setItem("findjob_phone", data.phone || "");
 
       window.dispatchEvent(new Event("findjob_role_changed"));
 
-      const role = data.role;
       if (data.role === "admin") navigate("/admin");
       else if (data.role === "recruiter") navigate("/recruiter");
       else navigate("/applicant");
@@ -64,7 +63,6 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }) {
       alert("Les mots de passe ne correspondent pas !");
       return;
     }
-
     if (signupData.role === "admin" && signupData.adminCode !== "172806") {
       alert("Code admin invalide !");
       return;
@@ -75,7 +73,8 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }) {
       last_name: signupData.last_name,
       email: signupData.email,
       password: signupData.password,
-      role: signupData.role
+      role: signupData.role,
+      phone: signupData.phone || "",
     };
 
     try {
@@ -84,16 +83,15 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataSend),
       });
-
-      if (!response.ok) {
-        throw new Error("Erreur lors de l’inscription");
-      }
-
+      if (!response.ok) throw new Error("Erreur lors de l’inscription");
       const data = await response.json();
 
       localStorage.setItem("findjob_user_role", signupData.role);
-      localStorage.setItem(`findjob_${signupData.role}_id`, data.id);
       localStorage.setItem("findjob_token", data.id);
+      localStorage.setItem("findjob_first_name", signupData.first_name);
+      localStorage.setItem("findjob_last_name", signupData.last_name);
+      localStorage.setItem("findjob_email", signupData.email);
+      localStorage.setItem("findjob_phone", signupData.phone || "");
 
       window.dispatchEvent(new Event("findjob_role_changed"));
 
@@ -191,7 +189,6 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }) {
             >
               Se connecter
             </button>
-
           </form>
         ) : (
           <form onSubmit={Signup} className="space-y-0">
@@ -224,7 +221,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }) {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-0.5 w-98">Email</label>
+              <label className="block text-sm font-semibold mb-0.5">Email</label>
               <input
                 type="email"
                 value={signupData.email}

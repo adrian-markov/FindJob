@@ -15,6 +15,7 @@ export default function JobCard({ job }) {
   }, [job.description]);
 
   const handleApplyClick = () => {
+    console.log("Navigating to:", `/apply/${job.id_ad}`);
     navigate(`/apply/${job.id_ad}`);
   };
 

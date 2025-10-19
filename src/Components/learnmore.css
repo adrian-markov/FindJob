@@ -32,3 +32,14 @@
   border-radius:16px; padding:16px; box-shadow:var(--shadow);
 }
  
+.moreless__content .card p {
+  font-size: 0.95rem; 
+  font-weight: 400;
+  color: var(--text);
+}
+
+.learnmore-text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text);
+}
