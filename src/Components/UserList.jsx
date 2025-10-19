@@ -177,34 +177,7 @@ const UserList = ({ refreshStats }) => {
             </form>
           </div>
         </div>
-      )}
-
-      {showAddModal && (
-        <div className="fixed inset-0 bg-gray-400 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-xl w-[500px] shadow-lg">
-            <h3 className="text-purple font-bold mb-4">Ajouter un utilisateur</h3>
-            <form onSubmit={AddUser} className="flex flex-col gap-3">
-              <input type="text" placeholder="Prénom" value={newUser.first_name} onChange={(e) => setNewUser({ ...newUser, first_name: e.target.value })} className="border p-2 rounded" required />
-              <input type="text" placeholder="Nom" value={newUser.last_name} onChange={(e) => setNewUser({ ...newUser, last_name: e.target.value })} className="border p-2 rounded" required />
-              <input type="email" placeholder="Email" value={newUser.email} onChange={(e) => setNewUser({ ...newUser, email: e.target.value })} className="border p-2 rounded" required />
-              <select value={newUser.role} onChange={(e) => setNewUser({ ...newUser, role: e.target.value })} className="border p-2 rounded">
-                <option value="admin">Admin</option>
-                <option value="recruiter">Recruteur</option>
-                <option value="applicant">Candidat</option>
-              </select>
-
-              <div className="flex justify-end gap-3 mt-4">
-                <button type="button" onClick={() => setShowAddModal(false)} className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded focus:outline-none">
-                  Annuler
-                </button>
-                <button type="submit" className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded focus:outline-none">
-                  Ajouter
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      )}  
     </div>
   );
 };

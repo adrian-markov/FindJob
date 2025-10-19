@@ -10,10 +10,10 @@ import {
 import Nav from "./Components/Nav.jsx";
 import Accueil from "./Components/Accueil.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
-import RecruiterPage from "./pages/RecruiterPage.jsx";
 import Profile from "./pages/Profile.jsx";
 import Applicant from "./Components/applicant.jsx";
 import ApplicationPage from "./pages/ApplicationPage.jsx"; 
+import RecruiterDashboard from "./pages/RecruiterDashboard.jsx";
 
 function Layout() {
   const location = useLocation();
@@ -71,7 +71,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Accueil />} />
           <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/recruiter" element={<RecruiterPage />} />
+          <Route path="/recruiter" element={<RecruiterDashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/applicant" element={<Applicant />} />
           <Route path="/apply/:jobId" element={<ApplicationPage />} />
